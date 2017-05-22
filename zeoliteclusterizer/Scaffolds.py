@@ -2,6 +2,7 @@ import string
 from Gaussian import GaussianInput
 import os, sys
 import numpy as np
+import copy
 
 class ScaffoldRing(GaussianInput):
 	'''
@@ -107,7 +108,7 @@ class AbstractMode(object):
 		conformations = []
 		prevConfs = {}
 
-		initial = list(binding.metal_ligand_list) # Create copy
+		initial = copy.deepcopy(binding.metal_ligand_list) # Create copy
 		initial = self._replaceMetal(combo, initial)
 
 		ligandList = combo.ligands
@@ -119,9 +120,6 @@ class AbstractMode(object):
 		else:
 			conformations = self._transformSameLigs(initial, ligandList)
 			
-		print "Initial: ", initial #DELETE
-		print "Conformation: ", conformations #DELETE
-
 		return conformations
 
 	def _replaceMetal(self, combo, conf_list):

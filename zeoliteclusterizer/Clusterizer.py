@@ -28,9 +28,6 @@ class Clusterizer(object):
 		self.combinations = []
 		self.finalModes = None
 
-		print "Charges: ", charges #DELETE
-		print "Counter charges: ", self._cCharges  #DELETE
-		
 		if mix_ligands == False:
 			for metal in metals:
 				self.makePureCombinations(scaffold, binding_list, metal, ligands, 
@@ -38,14 +35,6 @@ class Clusterizer(object):
 		else:
 			self.makeMixCombinations(scaffold, binding_list, metal, ligands,
 											charges, unpaired, combos)
-
-		print "Final Combos: ", self.combinations #DELETE
-		for combo in self.combinations: #DELETE
-			print combo._hashval #DELETE
-
-		for combo in self.combinations: #DELETE
-			numLigs = combo.getNumLigands() #DELETE
-			print combo._strings, self._modes[numLigs] #DELETE
 
 		abstractModes = [AbstractMode(combo, mode, scaffold, mixed=False) 
 			for combo, mode in self.matchingModes(self.combinations, self._modes)]
