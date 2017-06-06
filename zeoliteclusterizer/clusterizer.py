@@ -1,8 +1,8 @@
 
 import sys
-from Extraframework import Combination
-from Scaffolds import AbstractMode
-from Gaussian import OutputTest
+from extraframework import Combination
+from scaffolds import AbstractMode
+from gaussian import OutputTest
 
 class Clusterizer(object):
 	'''

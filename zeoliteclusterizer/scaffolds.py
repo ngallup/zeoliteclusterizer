@@ -1,5 +1,5 @@
 import string
-from Gaussian import GaussianInput
+from gaussian import GaussianInput
 import os, sys
 import numpy as np
 import copy
