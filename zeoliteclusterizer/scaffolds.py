@@ -158,5 +158,5 @@ class AbstractMode(object):
 			
 	
 	def _transformMixedLigs(self):
-		print "I'm not defined yet!"
+		print("I'm not defined yet!")
 		sys.exit()

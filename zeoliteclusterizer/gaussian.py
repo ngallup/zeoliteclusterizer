@@ -207,7 +207,6 @@ class G09Output(Output):
 							float(line[3]), self.coord_digits, float(line[4]))
 				comfile.write('%-*s %-*s %-*f %-*f %-*f\n' % params)
 
-			print 'BLARG: ', mode.conformations
 			for line in mode.conformations:
 				params = (self.atom_width, line[0], self.frozen_width, line[1],
                      self.coord_digits, float(line[2]), self.coord_digits,
