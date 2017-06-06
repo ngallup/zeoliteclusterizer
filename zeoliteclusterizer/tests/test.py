@@ -1,8 +1,8 @@
 
-from ..Scaffolds import ScaffoldRing, BindingMode
-from ..Extraframework import Metal, Ligand, Combination, hydroxide, oxide, hydride
-from ..Clusterizer import *
-from ..Gaussian import G09Output
+from ..scaffolds import ScaffoldRing, BindingMode
+from ..extraframework import Metal, Ligand, Combination, hydroxide, oxide, hydride
+from ..clusterizer import *
+from ..gaussian import G09Output
 import os
 import pprint
 
@@ -56,7 +56,7 @@ ligands = [hydroxide, hydride, oxide]
 #print 'Metal: ', test.metal
 #print 'Ligands: ', test.ligands
 clusters = Clusterizer(scaffold, modes_coms, metals, 
-					ligands, charges=[0], unpaired=[[0,2]], 
+					ligands, charges=[0], unpaired=[[0]], 
 					mix_ligands=False)
 
 output = G09Output(r'/projects/bioenergy/ngallup/git/zeoliteclusterizer/zeoliteclusterizer/tests/tests')
