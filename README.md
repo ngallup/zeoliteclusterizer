@@ -44,7 +44,7 @@ mn = Metal('Mn', [3,5], [0])
 fe = Metal('Fe', [2], [0])
 co = Metal('Co', [1,3], [0])
 ni = Metal('Ni', [2], [0])
-cu = Metal('Cu', [2], [0])
+cu = Metal('Cu', [1], [0])
 zn = Metal('Zn', [2], [0])
 metals = [sc, ti, v, cr, mn, fe, co, ni, cu, zn]
 
