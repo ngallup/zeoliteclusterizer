@@ -52,8 +52,9 @@ metals = [sc, ti, v, cr, mn, fe, co, ni, cu, zn]
 ligands = [hydroxide, hydride, oxide]
 
 # The Clusterizer object will take all of this data and perform all the cominatorics for us.  
-# Here we specify that we only want scaffold-metal-ligand combinations that only have a total charge of 0, 
-# and 0 unpaired electrons.  We also specify that we don't want mixed ligand combinations for all accepted geometries.
+# Here we specify that we only want scaffold-metal-ligand combinations that only have a total 
+# charge of 0, and 0 unpaired electrons.  We also specify that we don't want mixed ligand 
+# combinations for all accepted geometries.
 clusters = Clusterizer(scaffold, modes_coms, metals, 
                         ligands, charges=[0], unpaired=[[0]], 
 					              mix_ligands=False)
