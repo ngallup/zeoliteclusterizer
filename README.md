@@ -51,15 +51,37 @@ metals = [sc, ti, v, cr, mn, fe, co, ni, cu, zn]
 # Create of list of ligands we want to combine with each of these metals
 ligands = [hydroxide, hydride, oxide]
 
-# The Clusterizer object will take all of this data and perform all the cominatorics for us.  Here we specify that we only want scaffold-metal-ligand combinations that only have a total charge of 0, and 0 unpaired electrons.  We also specify that we don't want mixed ligand combinations for all accepted geometries.
+# The Clusterizer object will take all of this data and perform all the cominatorics for us.  
+# Here we specify that we only want scaffold-metal-ligand combinations that only have a total charge of 0, 
+# and 0 unpaired electrons.  We also specify that we don't want mixed ligand combinations for all accepted geometries.
 clusters = Clusterizer(scaffold, modes_coms, metals, 
                         ligands, charges=[0], unpaired=[[0]], 
 					              mix_ligands=False)
                         
-# Finally, we need to write all these modes to a directory in a format that Gaussian 09 appreciates, creating new directory for each file
+# Finally, we need to write all these modes to a directory in a format that Gaussian 09 appreciates, 
+# creating new directory for each file
 output = G09Output(<directory to contains all resulting .com/.gjf files>)
 output.writeAllModes(clusters.getFinalModes(), makedirs=True)
 ```
+
+Voila!  You've created probably somewhere between 50 and 500 geometries you're interested in screening!  To make sure zeoliteclusterizer is able to perform its job, care should be taken when creating the necessary scaffolds and binding modes.  The scaffold should only contain the atoms that represent the rigid structure upon which your adsorbed species bind inside a Gaussian input file.  It should not contain any additional ligands or adsorbed metals.
+
+In your binding mode files, you should add in the specific configurations of interest, with the adsorbed metal being represented by the dummy 'X' atom type inside a Gaussian input.  Ligand positions should be represented by 'H' atom types and coordinate closely to the proposed metal in poses that are chemically sound.
+
+Lastly, some common ligands are provided in the extraframework module, but the set is, naturally, limited, and may not suit your purposes.  If that is the case, it is possible to create new ligands.  Below is how the hydroxide and hydride ligand objects were created.
+```
+hydroxide_pos = [
+            ['O', 0.00000000, 0.00000000, 0.00000000],
+            ['H', 0.00000000, 0.00000000, -1.00000000]
+         ]
+hydroxide = Ligand('OH', hydroxide_pos, [-1], [0])
+
+hydride_pos = [ ['H', 0.0, 0.0, 0.0] ]
+hydride = Ligand('Hydride', hydride_pos, [-1], [0])
+```
+Specific atomic coordinates must be created for each atom of a ligand.  The Clusterizer will transform this coordinate set to be in the correct binding position to the metal.  Each of these ligands requires a name, a coordinate set with atom types, charge, and number of unpaired electrons.
+
+Hopefully this is enough to get you started, but if you have questions feel free to email me!
 
 ## History
 
