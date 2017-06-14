@@ -1,4 +1,4 @@
-# zeoliteclusteizer - rapid catalyst screening in Python
+# zeoliteclusterizer - rapid catalyst screening in Python
 - Version: 0.1.1
 - Author: Nathan Gallup
 - Email: gallup@chem.ucla.edu, nathan.gallup@nrel.gov
