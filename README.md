@@ -32,8 +32,8 @@ scaffold = ScaffoldRing(<path to scaffold ring>)
 # Now we need to specify the binding modes we're interested in probing
 modes_dir = os.path.abspath(<path to directory holding desired binding configurations>)
 modes = os.listdir(modes_dir)
-modes = [os.path.join(modes_dir, each) for each in modes_coms]
-modes = [BindingMode(each, scaffold.atom_list) for each in modes_coms]
+modes = [os.path.join(modes_dir, each) for each in modes]
+modes = [BindingMode(each, scaffold.atom_list) for each in modes]
 
 # Specify all the metals, charges, and spin states we're interesting in screening
 sc = Metal('Sc', [1,3], [0])
